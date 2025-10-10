@@ -18,8 +18,8 @@ app.get("/run", async (req, res) => {
   res.send("✅ Morning brief executed manually!");
 });
 
-cron.schedule("0 7 * * *", () => {
-  console.log("⏰ Running daily 7AM job...");
+cron.schedule("15 8 * * *", () => {
+  console.log("⏰ Running daily 8:15AM job...");
   runMorningBrief();
 });
 
