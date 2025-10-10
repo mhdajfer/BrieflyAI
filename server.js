@@ -18,10 +18,16 @@ app.get("/run", async (req, res) => {
   res.send("✅ Morning brief executed manually!");
 });
 
-cron.schedule("15 8 * * *", () => {
-  console.log("⏰ Running daily 8:15AM job...");
-  runMorningBrief();
-});
+cron.schedule(
+  "21 8 * * *",
+  () => {
+    console.log("⏰ Running daily 8:15AM job...");
+    runMorningBrief();
+  },
+  {
+    timezone: "Asia/Kolkata",
+  }
+);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
