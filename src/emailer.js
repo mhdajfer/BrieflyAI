@@ -18,7 +18,7 @@ export async function sendEmail(summary) {
     from: `"AI Morning Berief" <${process.env.EMAIL_USER}>`,
     to: process.env.TO_EMAIL,
     subject: `🌞 AI Morning Brief - ${new Date().toLocaleDateString()}`,
-    text: htmlContent,
+    html: htmlContent,
   });
 
   console.log("✅ Email sent successfully!");

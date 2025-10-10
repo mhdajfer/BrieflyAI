@@ -7,12 +7,8 @@ export async function runMorningBrief() {
     console.log("🌅 Fetching latest AI news...");
     const news = await fetchAINews();
 
-    console.log("news : ", news);
-
     console.log("🤖 Summarizing with Gemini...");
     const summary = await summarizeNews(news);
-
-    console.log("summary : ", summary);
 
     console.log("📨 Sending email...");
     await sendEmail(summary);
