@@ -14,18 +14,17 @@ app.get("/", (req, res) => {
 
 app.get("/run", async (req, res) => {
   await runMorningBrief();
-  console.log("reached here--");
   res.send("✅ Morning brief executed manually!");
 });
 
 cron.schedule(
-  "21 8 * * *",
+  process.env.CRON_JOB_TIME,
   () => {
     console.log("⏰ Running daily 8:15AM job...");
     runMorningBrief();
   },
   {
-    timezone: "Asia/Kolkata",
+    timezone: process.env.CRON_JOB_TIMEZONE,
   }
 );
 

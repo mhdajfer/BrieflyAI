@@ -22,4 +22,5 @@ export async function sendEmail(summary) {
   });
 
   console.log("✅ Email sent successfully!");
+  return summary;
 }
